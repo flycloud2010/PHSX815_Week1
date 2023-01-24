@@ -4,6 +4,7 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+from Read_Numbers import Create_Histogram
 
 #################
 # Random class
@@ -66,24 +67,23 @@ if __name__ == "__main__":
     random = Random(seed)
 
     # create some random data
-    N = 10000
+    N = 100000
 
     # an array of random numbers from numpy
     x = np.random.rand(N)
 
     # an array of random numbers using our Random class
     myx = []
+    # Write the numbers to a file
+    file_read = "Random_number_list.txt"
+    f = open(file_read,'w')
     for i in range(0,N):
-        myx.append(random.rand())
+        numb = random.rand()
+        myx.append(numb)
+        f.write(str(numb)+" ")
+    
+    f.close()
+    
 
-    # create histogram of our data
-    n, bins, patches = plt.hist(myx, 50, density=True, facecolor='g', alpha=0.75)
-
-    # plot formating options
-    plt.xlabel('x')
-    plt.ylabel('Probability')
-    plt.title('Uniform random number')
-    plt.grid(True)
-
-    # show figure (program only ends once closed
-    plt.show()
+    hist = Create_Histogram(file_read)
+    hist.Plot()
