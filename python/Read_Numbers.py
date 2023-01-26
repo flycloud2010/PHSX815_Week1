@@ -13,13 +13,15 @@ class Create_Histogram:
         with open(self.file_name, 'r') as file:
             n = [float(x) for x in file.read().split()]
 
-        plt.hist(n,  50, density=True, facecolor='g', alpha=0.75)
+        plt.hist(n,  50, density=True, facecolor='r', alpha=0.75, label='Random Numbers')
 
         # plot formating options
         plt.xlabel('x')
         plt.ylabel('Probability')
         plt.title('Uniform random number')
         plt.grid(True)
-
+        plt.legend()
+        ax = plt.gca()
+        ax.set_ylim([0.8, 1.2])
         # show figure (program only ends once closed
         plt.show()

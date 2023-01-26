@@ -75,7 +75,7 @@ if __name__ == "__main__":
     # an array of random numbers using our Random class
     myx = []
     # Write the numbers to a file
-    file_read = "Random_number_list.txt"
+    file_read = "Number_list.txt"
     f = open(file_read,'w')
     for i in range(0,N):
         numb = random.rand()
